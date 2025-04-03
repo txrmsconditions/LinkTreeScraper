@@ -73,7 +73,7 @@ class Linktree(object):
         json_resp = await resp.json()
         if not json_resp or "links" not in json_resp:
              await session.close()
-             return []  # Return an empty list instead of breaking
+             return []
 
         links = json_resp["links"]
 
@@ -126,8 +126,7 @@ class Linktree(object):
         avatar_image = account["profilePictureUrl"]
         url = f"https://linktr.ee/{username}" if url is None else url 
         id = account["id"]
-        tier = account.get("tier", "Unknown")  # You can replace "Unknown" with any default value
-        isActive = account["isActive"]
+        tier = account.get("tier", "Unknown")
         createdAt = account["createdAt"]
         updatedAt = account["updatedAt"]
         description = account["description"]
